@@ -1,0 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+body {
+    /*background-image: url("../pictures/background.jpg");*/
+    background-color: #292929;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+html * {
+    color: #FFFFFF;
+    font-family: Inconsolata, serif;
+}
+.title{
+    text-align: center;
+    font-size: 50px;
+    margin: 20px;
+    text-decoration: none;
+}
+.user_box{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.main_box{
+    width: 1100px;
+    margin: auto;
+}
+.top_bar{
+    background-color: #292929;
+    position: sticky;
+    top: 0;
+}
+input {
+    background-color: #292929;
+    border: solid thin white;
+    padding: 2px;
+}
+input:focus {
+    outline: solid 2px white;
+}
+.centered_form button{
+    width: 100%;
+}
+button{
+    background-color: #292929;
+    border: solid thin white;
+}
+button:hover{
+    background-color: #111;
+}
+button:focus{
+    background-color: #292929;
+}
+.centered_form {
+
+    text-align: center;
+}
+.centered_form div {
+
+    display: inline-block
+}
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.menu li{
+    display:inline;
+}
+.menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display:inline-block;
+}
+
+.menu a:hover{
+    background-color: #111;
+}
+
+.movie_details{
+    visibility: hidden;
+    background-color: #292929;
+    border: solid thin white;
+    position: fixed;
+    width: 500px;
+    height: 700px;
+    top: 150px;
+    left: 50%;
+    margin-left: 50px;
+}

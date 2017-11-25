@@ -3,22 +3,42 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Creestoph MDB{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
-<header>
-    <h1><a href={% url 'home' %}>Creestoph MDB</a></h1>
-    {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <a href="{% url 'logout' %}">logout</a>
-    {% else %}
-        <a href="{% url 'login' %}">login</a>
-    {% endif %}
-</header>
-<hr>
-<main>
-    {% block content %}
-    {% endblock %}
-</main>
-<hr>
+<div class="main_box">
+    <header class="top_bar">
+        <div class="title"><a style="text-decoration: none" href={% url 'home' %}>Creestoph MDB</a></div>
+        <div class="user_box">
+            {% if user.is_authenticated %}
+                Hi {{ user.username }}!
+                <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+                Hi stranger!
+                <a href="{% url 'login' %}">login</a>
+            {% endif %}
+        </div>
+
+        {% if user.is_authenticated %}
+            <ul class="menu">
+            <li><a href="{% url 'home' %}">Movie List</a></li>
+            {% if user.is_superuser %}
+{#                <li><a href="{% url 'requests' %}">Requests</a></li>#}
+                <li><a href="{% url 'home' %}?relist=full">Full relist</a></li>
+                <li><a href="{% url 'home' %}?relist=lazy">Lazy relist</a></li>
+            {% else %}
+                <li><a href="{% url 'request' %}">Request</a></li>
+            {% endif %}
+        {% endif %}
+
+        </ul>
+        <hr>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</div>
 </body>
 </html>

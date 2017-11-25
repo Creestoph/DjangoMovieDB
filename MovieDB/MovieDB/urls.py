@@ -17,11 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from MovieListViewer.views import create_movie_list_view
+from MovieListViewer.views import create_movie_list_view, create_request_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logout.html'}, name='logout'),
-    url(r'^$', create_movie_list_view, name='home'),
+    url(r'^movies/$', create_movie_list_view, name='home'),
+    url(r'^request/$', create_request_view, name='request'),
 ]
