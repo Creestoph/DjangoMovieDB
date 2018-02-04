@@ -25,7 +25,7 @@ SECRET_KEY = 'lz$%(m7&efq-zp(e2dy+kahs%*h4_(rm)&w$szvr_la(7h7r7i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ "89e7036d.ngrok.io", '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -124,5 +124,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/static/',
 ]
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL=reverse_lazy('home')

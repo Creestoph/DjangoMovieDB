@@ -6,6 +6,6 @@ class Movie(models.Model):
     directory = models.CharField(max_length=1024, blank=False, null=False)
 
 class Request(models.Model):
-    user = models.ForeignKey(User, editable=False)
+    user = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=1024, blank=False, null=False)
     year = models.CharField(max_length=4, blank=True, null=True)

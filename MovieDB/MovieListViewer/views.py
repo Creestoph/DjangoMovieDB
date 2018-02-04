@@ -43,3 +43,15 @@ def create_request_view(request):
     else:
         form = RequestForm()
     return render(request, 'request.html', {'form': form})
+
+@user_passes_test(lambda user: user.is_superuser)
+def create_requests_view(request):
+    requests = models.Request.objects.all()
+    requests_groups = {}
+    for r in requests:
+        key = (r.user_id, models.User.objects.filter(id=r.user_id)[0].username)
+        if key in requests_groups.keys():
+            requests_groups[key].append(r)
+        else:
+            requests_groups[key] = [r]
+    return render(request, 'requests.html', {'requests_group': requests_groups})

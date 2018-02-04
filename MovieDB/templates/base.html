@@ -24,7 +24,7 @@
             <ul class="menu">
             <li><a href="{% url 'home' %}">Movie List</a></li>
             {% if user.is_superuser %}
-{#                <li><a href="{% url 'requests' %}">Requests</a></li>#}
+                <li><a href="{% url 'requests' %}">Requests</a></li>
                 <li><a href="{% url 'home' %}?relist=full">Full relist</a></li>
                 <li><a href="{% url 'home' %}?relist=lazy">Lazy relist</a></li>
             {% else %}

@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from MovieListViewer.views import create_movie_list_view, create_request_view
+from MovieListViewer.views import create_movie_list_view, create_request_view, create_requests_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logout.html'}, name='logout'),
     url(r'^movies/$', create_movie_list_view, name='home'),
     url(r'^request/$', create_request_view, name='request'),
+    url(r'^requests/$', create_requests_view, name='requests'),
 ]
